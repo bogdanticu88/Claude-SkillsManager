@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillPM Registry</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-content">
+            <a href="/" class="logo">SkillPM</a>
+            <div class="nav-links">
+                <a href="/" class="nav-link active">Browse</a>
+                <a href="#" class="nav-link" onclick="showDashboard()">Dashboard</a>
+                <a href="#" class="nav-link" onclick="showAbout()">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <!-- Search Section -->
+        <section id="search-section" class="hero">
+            <h1>Find LLM Skills</h1>
+            <p>The open registry for Claude, GPT-4, Gemini, and local model skills.</p>
+            <div class="search-box">
+                <input type="text" id="search-input" placeholder="Search skills..."
+                       onkeyup="handleSearch(event)">
+                <button onclick="performSearch()">Search</button>
+            </div>
+            <div class="filters">
+                <select id="filter-tag" onchange="performSearch()">
+                    <option value="">All Tags</option>
+                </select>
+                <select id="filter-language" onchange="performSearch()">
+                    <option value="">All Languages</option>
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="typescript">TypeScript</option>
+                </select>
+                <select id="filter-sort" onchange="performSearch()">
+                    <option value="relevance">Relevance</option>
+                    <option value="downloads">Most Downloads</option>
+                    <option value="rating">Highest Rated</option>
+                    <option value="newest">Newest</option>
+                    <option value="name">Name A-Z</option>
+                </select>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="results-section">
+            <div id="results-count"></div>
+            <div id="results-grid" class="skill-grid"></div>
+        </section>
+
+        <!-- Skill Detail Section (hidden by default) -->
+        <section id="detail-section" style="display:none;">
+            <a href="#" onclick="showBrowse()" class="back-link">Back to search</a>
+            <div id="skill-detail"></div>
+        </section>
+
+        <!-- Author Profile Section (hidden by default) -->
+        <section id="author-section" style="display:none;">
+            <a href="#" onclick="showBrowse()" class="back-link">Back to search</a>
+            <div id="author-detail"></div>
+        </section>
+
+        <!-- Dashboard Section (hidden by default) -->
+        <section id="dashboard-section" style="display:none;">
+            <h2>Registry Dashboard</h2>
+            <div id="dashboard-stats" class="stats-grid"></div>
+            <div class="dashboard-panels">
+                <div id="top-downloaded" class="panel"></div>
+                <div id="newest-skills" class="panel"></div>
+            </div>
+        </section>
+
+        <!-- About Section (hidden by default) -->
+        <section id="about-section" style="display:none;">
+            <h2>About SkillPM</h2>
+            <p>SkillPM is an open-source package manager for LLM skills. It provides
+               a registry for discovering, installing, and managing skills that extend
+               the capabilities of large language models like Claude, GPT-4, Gemini,
+               and locally-hosted models.</p>
+            <h3>Install the CLI</h3>
+            <pre><code>go install github.com/skillpm/skillpm@latest</code></pre>
+            <h3>Quick Start</h3>
+            <pre><code># Register an account
+skillpm auth register --username myname --email me@example.com
+
+# Search for skills
+skillpm search "code review"
+
+# Install a skill
+skillpm install code-reviewer
+
+# Run a skill
+skillpm run code-reviewer ./myfile.py</code></pre>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>SkillPM Registry - Open Source (MIT License) - Author: Bogdan Ticu</p>
+        </div>
+    </footer>
+
+    <script src="static/app.js"></script>
+</body>
+</html>

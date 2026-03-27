@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SkillPM Workflow Manifest",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string" },
+    "version": { "type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$" },
+    "description": { "type": "string" },
+    "steps": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "skill": { "type": "string" },
+          "input": { "type": "string" },
+          "output": { "type": "string" },
+          "if": { "type": "string" },
+          "on_error": {
+            "type": "object",
+            "properties": {
+              "action": { "type": "string", "enum": ["retry", "skip", "fail"] },
+              "retry_count": { "type": "integer" }
+            }
+          },
+          "parallel": { "type": "boolean" }
+        },
+        "required": ["name", "skill"]
+      }
+    }
+  },
+  "required": ["name", "version", "steps"]
+}

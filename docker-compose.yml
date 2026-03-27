@@ -1,0 +1,22 @@
+# SkillPM - Docker Compose for Development
+# Author: Bogdan Ticu
+# License: MIT
+
+version: "3.8"
+
+services:
+  registry:
+    build:
+      context: ./registry
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=sqlite:///./skillpm.db
+    volumes:
+      - ./registry:/app
+      - skillpm-data:/app/data
+    restart: unless-stopped
+
+volumes:
+  skillpm-data:

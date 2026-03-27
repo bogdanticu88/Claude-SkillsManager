@@ -1,0 +1,146 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SkillPM Manifest Schema",
+  "type": "object",
+  "required": [
+    "name",
+    "version",
+    "author",
+    "description",
+    "license",
+    "entry_point",
+    "language",
+    "target_llms"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]+$",
+      "description": "Lowercase, alphanumeric-dash only"
+    },
+    "version": {
+      "type": "string",
+      "description": "Semver version (e.g., 1.0.0)"
+    },
+    "author": {
+      "type": "string",
+      "description": "GitHub username"
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description of the skill"
+    },
+    "license": {
+      "type": "string",
+      "description": "MIT, Apache-2.0, etc."
+    },
+    "entry_point": {
+      "type": "string",
+      "description": "Relative path to main file (e.g., skill.py)"
+    },
+    "language": {
+      "type": "string",
+      "enum": ["python", "javascript", "go"],
+      "description": "Programming language of the skill"
+    },
+    "target_llms": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["claude", "gpt-4", "gemini", "local-llm"]
+      },
+      "minItems": 1
+    },
+    "capabilities": {
+      "type": "object",
+      "properties": {
+        "file_read": {
+          "type": "object",
+          "properties": {
+            "paths": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "file_write": {
+          "type": "object",
+          "properties": {
+            "paths": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "file_delete": {
+          "type": "object",
+          "properties": {
+            "paths": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "network": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["domain", "protocol"],
+            "properties": {
+              "domain": { "type": "string" },
+              "protocol": { "type": "array", "items": { "type": "string", "enum": ["http", "https"] } },
+              "ports": { "type": "array", "items": { "type": "integer" } }
+            }
+          }
+        },
+        "subprocess": {
+          "type": "object",
+          "properties": {
+            "allowed_commands": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "skill_invoke": {
+          "type": "object",
+          "properties": {
+            "skills": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "user_data": {
+          "type": "object",
+          "properties": {
+            "fields": { "type": "array", "items": { "type": "string" } }
+          }
+        },
+        "system": {
+          "type": "object",
+          "properties": {
+            "env_vars": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "dependencies": {
+      "type": "object",
+      "properties": {
+        "skills": { "type": "array", "items": { "type": "string" } },
+        "system": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "repository": {
+      "type": "string",
+      "format": "uri"
+    },
+    "homepage": {
+      "type": "string",
+      "format": "uri"
+    },
+    "requires": {
+      "type": "object",
+      "properties": {
+        "min_version": { "type": "string" }
+      }
+    },
+    "author_verified": {
+      "type": "boolean"
+    },
+    "maintenance_status": {
+      "type": "string",
+      "enum": ["active", "deprecated", "archived"]
+    }
+  }
+}

@@ -1,0 +1,8 @@
+name: INVALID NAME!
+version: not-semver
+author: user
+description: Missing description, license, etc.
+# license: MIT (missing)
+# entry_point: skill.py (missing)
+# language: python (missing)
+# target_llms: [claude] (missing)

@@ -1,0 +1,26 @@
+name: image-analyzer
+version: 1.0.0
+author: ai-enthusiast
+description: Extracts metadata and objects from images.
+license: MIT
+entry_point: skill.py
+language: python
+target_llms:
+  - claude
+
+capabilities:
+  file_read:
+    paths:
+      - /tmp/images
+  network:
+    - domain: vision-api.example.com
+      protocol:
+        - https
+      ports:
+        - 443
+
+tags:
+  - vision
+  - nlp
+repository: https://github.com/skillpm-registry/image-analyzer
+homepage: https://skillpm.dev/skills/image-analyzer
