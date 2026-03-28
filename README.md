@@ -1,4 +1,6 @@
 # SkillPM
+<img width="487" height="161" alt="2026-03-28_02-47" src="https://github.com/user-attachments/assets/3951ab24-47ee-417e-9dbf-5dc9b5a1d760" />
+
  
  [![Tests](https://github.com/bogdanticu88/Claude-SkillsManager/actions/workflows/ci.yml/badge.svg)](https://github.com/bogdanticu88/Claude-SkillsManager/actions)
  [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
