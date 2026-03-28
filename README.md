@@ -5,6 +5,16 @@
  [![Go](https://img.shields.io/badge/Go-1.21+-00ADD8?logo=go)](https://golang.org)
  [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python)](https://www.python.org)
  [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?logo=fastapi)](https://fastapi.tiangolo.com)
+  [![Tests](https://github.com/bogdanticu88/Claude-SkillsManager/actions/workflows/ci.yml/badge.svg)](https://github.com/bogdanticu88/Claude-SkillsManager/actions)
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+ [![Release](https://img.shields.io/badge/Release-v1.0.0-blue.svg)](https://github.com/bogdanticu88/Claude-SkillsManager/releases)
+ [![Go](https://img.shields.io/badge/Go-1.21+-00ADD8?logo=go)](https://golang.org)
+ [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python)](https://www.python.org)
+ [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?logo=fastapi)](https://fastapi.tiangolo.com)
+ [![Docker](https://img.shields.io/badge/Docker-Supported-2496ED?logo=docker)](https://docker.com)
+ [![Coverage](https://img.shields.io/badge/Coverage-75%25+-green.svg)](https://github.com/bogdanticu88/Claude-SkillsManager)
+ [![Status](https://img.shields.io/badge/Status-Production%20Ready-success.svg)](#)
+ 
  
 Package manager for Claude AI skills.
 
