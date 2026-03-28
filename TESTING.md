@@ -182,7 +182,7 @@ pytest --log-cli-level=DEBUG tests/test_validation.py
 
 ## Performance Testing
 
-Coming in Phase 2:
+Coming in Stage 2:
 - Load testing (concurrent users)
 - Response time benchmarks
 - Database query optimization
@@ -190,7 +190,7 @@ Coming in Phase 2:
 
 ## Security Testing
 
-Coming in Phase 2:
+Coming in Stage 2:
 - SQL injection attempts
 - XSS in user inputs
 - CSRF protection

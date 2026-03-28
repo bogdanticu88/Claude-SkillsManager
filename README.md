@@ -67,14 +67,15 @@ Download (analytics, usage tracking)
 Organization (team workspace, member list)
 ```
 
-The backend uses FastAPI. The database is SQLite for development and PostgreSQL for production. The frontend has a REST API suitable for the CLI or a web interface (coming in Phase 2). Authentication uses API keys with JWT bearer tokens.
+The backend uses FastAPI. The database is SQLite for development and PostgreSQL for production. The frontend provides a REST API for the CLI and a web dashboard for browsing and publishing skills. Authentication uses API keys with JWT bearer tokens.
 
 ---
 
 ## Features
 
-Current release (Phase 1) includes:
+Current release includes Stage 1 and Stage 2 capabilities:
 
+**Stage 1:**
 - Skill search, filtering, and discovery
 - Semantic versioning with breaking change detection
 - User registration and API key management
@@ -93,14 +94,21 @@ Current release (Phase 1) includes:
 - Deployment guide for production
 - Operations runbook for incident response
 
-Planned (Phase 2):
+**Stage 2:**
+- GPG signing and verification for skill integrity
+- Docker sandboxing for secure skill execution with seccomp profiles
+- Skill workflow execution with isolation
+- Organization and team workspace support
+- Web dashboard frontend for skill browsing and publishing
+- Advanced skill composition and dependencies
 
-- GPG signing for skill verification
-- Docker sandboxing for secure skill execution
+**Planned (Stage 3):**
+
 - Automated evidence collection from GitHub, Azure DevOps, Jira, ServiceNow
 - Connector configuration UI
-- Web dashboard for skill browsing and publishing
-- Organization and team workspaces
+- Multi-tenant workspace isolation
+- Skill templates and scaffolding
+- Advanced analytics and telemetry
 
 ---
 
@@ -255,11 +263,11 @@ For production deployment, see DEPLOYMENT.md.
 
 ## Roadmap
 
-Phase 1 (current): Basic registry, skill discovery, reviews, versioning.
+**Stage 1 (Complete):** Basic registry, skill discovery, reviews, versioning.
 
-Phase 2: GPG signing, Docker sandboxing, evidence connectors, web dashboard.
+**Stage 2 (Complete):** GPG signing, Docker sandboxing, workflow execution, web dashboard, organizations.
 
-Phase 3: Multi-tenant workspaces, skill templates, advanced analytics.
+**Stage 3 (Planned):** Evidence connectors (GitHub, Azure DevOps, Jira, ServiceNow), connector UI, multi-tenant workspaces, skill templates.
 
 ---
 

@@ -335,7 +335,7 @@ journalctl -u skillpm -f
 docker-compose logs -f api
 ```
 
-### Metrics (Optional - Phase 3)
+### Metrics (Optional - Stage 3)
 
 Add Prometheus metrics:
 

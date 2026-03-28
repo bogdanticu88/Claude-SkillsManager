@@ -9,7 +9,7 @@ This guide explains how to manage database schema changes safely using Alembic.
 Without migrations:
 - Can't safely evolve schema in production
 - Manual SQL changes cause inconsistencies
-- No way to rollback bad changes
+- No rollback capability for failed deployments
 - Team members have different schema versions
 
 With Alembic:
