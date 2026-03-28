@@ -1,5 +1,11 @@
 # SkillPM
-
+ 
+ [![Tests](https://github.com/bogdanticu88/Claude-SkillsManager/actions/workflows/ci.yml/badge.svg)](https://github.com/bogdanticu88/Claude-SkillsManager/actions)
+ [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+ [![Go](https://img.shields.io/badge/Go-1.21+-00ADD8?logo=go)](https://golang.org)
+ [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?logo=python)](https://www.python.org)
+ [![FastAPI](https://img.shields.io/badge/FastAPI-0.100+-009688?logo=fastapi)](https://fastapi.tiangolo.com)
+ 
 Package manager for Claude AI skills.
 
 SkillPM is a registry and package manager that lets you discover, publish, and manage reusable skills for Claude in a central location. Instead of searching GitHub issues and gists for skill implementations, you register skills to SkillPM, set versioning and dependencies, collect community feedback, and install them with a single command.
