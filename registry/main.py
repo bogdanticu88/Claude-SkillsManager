@@ -5,7 +5,8 @@
 # The central registry API for SkillPM. Provides skill discovery,
 # publishing, author management, reviews, analytics, and moderation.
 
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, HTTPException
+from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
 from contextlib import asynccontextmanager
 import os
@@ -50,18 +51,21 @@ MAX_BODY_SIZE = int(os.getenv("MAX_BODY_SIZE", "1000000"))  # 1MB default
 async def limit_request_size(request: Request, call_next):
     """Enforce maximum request body size to prevent abuse."""
     if request.method in ["POST", "PUT", "PATCH"]:
-        if "content-length" in request.headers:
-            content_length = int(request.headers["content-length"])
-            if content_length > MAX_BODY_SIZE:
-                from fastapi import HTTPException
-                raise HTTPException(
-                    status_code=413,
-                    detail={
-                        "code": "INVALID_INPUT",
-                        "message": f"Request too large",
-                        "detail": f"Maximum request size is {MAX_BODY_SIZE} bytes"
-                    }
-                )
+        content_length = request.headers.get("content-length")
+        if content_length:
+            try:
+                content_length = int(content_length)
+                if content_length > MAX_BODY_SIZE:
+                    return JSONResponse(
+                        status_code=413,
+                        content={
+                            "code": "INVALID_INPUT",
+                            "message": "Request too large",
+                            "detail": f"Maximum request size is {MAX_BODY_SIZE} bytes"
+                        }
+                    )
+            except (ValueError, TypeError):
+                pass
     return await call_next(request)
 
 

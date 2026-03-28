@@ -21,15 +21,15 @@ os.environ["RATE_LIMIT_WINDOW"] = "60"
 # Increase request size limit for tests
 os.environ["MAX_BODY_SIZE"] = "10000000"
 
-# Now import and set up the database
-from registry.db.connection import engine
-from registry.db.models import Base
-
 # Clean up old test database if it exists
 import pathlib
 db_file = pathlib.Path(test_db_path)
 if db_file.exists():
     db_file.unlink()
+
+# Now import and set up the database
+from registry.db.connection import engine
+from registry.db.models import Base
 
 # Create all tables immediately when conftest is loaded
 Base.metadata.create_all(bind=engine)

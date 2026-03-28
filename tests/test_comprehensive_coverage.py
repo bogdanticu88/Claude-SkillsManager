@@ -265,7 +265,7 @@ class TestBreakingChangeDetection:
 class TestErrorHandling:
     """Test error response formats"""
 
-    def test_validation_error_format(self):
+    def test_validation_error_format(self, auth_headers):
         """Validation errors should have standard format"""
         response = client.post(
             "/api/v1/skills/",
@@ -275,7 +275,8 @@ class TestErrorHandling:
                 "description": "x",  # Invalid: too short
                 "language": "rust",  # Invalid: not supported
                 "author_username": "user"
-            }
+            },
+            headers=auth_headers["headers"]
         )
         assert response.status_code == 422
         data = response.json()
@@ -294,7 +295,7 @@ class TestErrorHandling:
     def test_request_id_tracking(self):
         """Request IDs should be tracked"""
         response = client.get("/api/v1/skills/")
-        assert "x-request-id" in response.headers.lower() or "X-Request-ID" in response.headers
+        assert "x-request-id" in {k.lower() for k in response.headers.keys()}
 
 
 class TestAuthenticationFlow:
